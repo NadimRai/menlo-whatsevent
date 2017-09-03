@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-3">
+		
+		<div class="panel panel-default">
+	      <div class="panel-heading"><%= @user.first_name %> &nbsp;<%= @user.last_name %></div>
+	      <div class="panel-body">
+	        <ul class="sidebar-list">
+	          <li><strong>Username:</strong> &nbsp;<%= @user.username %></li>
+	          <li><strong>Organization:</strong> &nbsp;<%= @user.organization_name %></li>
+	        </ul>
+	      </div>
+	    </div>
+	 
+	</div>
+
+	<div class="col-md-9">
+		<% if @user.organized_events.any? %>
+			<% @user.organized_events.each do |event| %>
+			   <%= link_to event_path(event) do %>
+			    <div class="events">
+			      <div class="row">
+			        <div class="col-sm-3">
+			          <%= image_tag "http://via.placeholder.com/200x100" %>
+			        </div>
+			        <div class="col-sm-9">
+			          <h3 class="event-title"><%= event.title %></h3>
+			          <p>
+			            <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
+			          </p>
+			          <p class="lead-time">
+			            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right"><%= time_format(event.end_date) %></span>
+			          </p>
+
+			          <div class="lead-time">
+			          	<span class="event-start"><%= event_status(event) %></span>
+			          </div>
+			          <p class="index-icons">
+			            
+			          </p>
+			        </div>
+			      </div>
+			    </div>
+			   <% end %>
+			<% end %>
+		<% end %>
+
+	</div>
+</div>
+
+
