@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :owned_post, only: [:edit, :update, :destroy]
 
 	def index
-		@events = Event.all.order("created_at ASC")
+		@events = Event.all.order("created_at DESC")
 	end
 
 	def new
@@ -57,6 +58,11 @@ class EventsController < ApplicationController
 			redirect_to root_path	
 	end
 
-	
+	def owned_post
+	  unless current_user == @event.organizer
+	    flash[:alert] = "That Event doesn't belong to you!"
+	    redirect_to root_path
+	  end
+  	end
 
 end
