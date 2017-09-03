@@ -1,5 +1,6 @@
 <h3>All Events</h3>
+<%= link_to "Add Event", new_event_path %><br>
 <% @events.each do |event| %>
-	<%= event.title %>
+	<%= link_to event.title, event_path(event) %>
 	<p><%= event.description %></p>
 <% end %>
