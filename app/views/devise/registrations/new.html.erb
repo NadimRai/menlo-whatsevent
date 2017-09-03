@@ -5,6 +5,25 @@
         <%= devise_error_messages! %>
 
         <div class="form-group">
+              <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+              <%= f.text_field :last_name, placeholder: "Last Name", 
+                                            class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+              <%= f.text_field :username, placeholder: "Username", 
+                                          class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+              <%= f.text_field :organization_name, placeholder: "Organization Name",
+                                                  class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
               <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
         </div>
 
