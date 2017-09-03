@@ -16,14 +16,14 @@
 	<div class="col-md-9">
 		<% if @user.organized_events.any? %>
 			<% @user.organized_events.each do |event| %>
-			   <%= link_to event_path(event) do %>
+			   
 			    <div class="events">
 			      <div class="row">
 			        <div class="col-sm-3">
 			          <%= image_tag "http://via.placeholder.com/200x100" %>
 			        </div>
 			        <div class="col-sm-9">
-			          <h3 class="event-title"><%= event.title %></h3>
+			          <h3 class="event-title"><%= link_to event.title, event_path(event) %></h3>
 			          <p>
 			            <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
 			          </p>
@@ -34,14 +34,25 @@
 			          <div class="lead-time">
 			          	<span class="event-start"><%= event_status(event) %></span>
 			          </div>
+
+			          <div class="lead-time">
+			          	<ul class="actions">
+					  	<% if @user == current_user %>
+						    <li><%= link_to "Edit Event", edit_event_path(event)  %></li>
+						    <li><%= link_to "Delete Event", event_path(event), method: :delete, data: {confirm: "Are you sure?"} %></li>
+						<% end %>
+					  </ul>
+			          </div>
 			          <p class="index-icons">
 			            
 			          </p>
 			        </div>
 			      </div>
 			    </div>
-			   <% end %>
+			  
 			<% end %>
+		<% else %>
+			<h3>No Events</h3>
 		<% end %>
 
 	</div>
