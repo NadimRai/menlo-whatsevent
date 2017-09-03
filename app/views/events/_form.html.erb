@@ -1,3 +1,13 @@
+<% if @event.errors.any? %>
+	<div id="error_explanation">
+		<h3><%= pluralize(@event.errors.count, "error") %></h3>
+	</div>
+	<ul>
+		<% @event.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
 <%= form_for @event do |f| %>
 	<div>
 		<%= f.label :title %>

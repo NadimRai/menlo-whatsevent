@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 			redirect_to @event 
 		else
 			flash.now[:alert] = "Please check error"
-			render 'form'
+			render 'new'
 		end
 	end
 
