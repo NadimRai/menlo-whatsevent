@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@events = Event.all.order("created_at ASC")
@@ -10,7 +11,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(event_params)
+		@event = current_user.events.build(event_params)
 		if @event.save
 			flash[:success] = "Your event is created"
 			redirect_to @event 
@@ -53,8 +54,9 @@ class EventsController < ApplicationController
 
 		rescue ActiveRecord::RecordNotFound
 			flash[:warning] = "The page you requested does not exist"
-			redirect_to root_path
-		
+			redirect_to root_path	
 	end
+
+	
 
 end

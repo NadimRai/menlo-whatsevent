@@ -1,7 +1,9 @@
 <header>
 <h3>All Events</h3>
 <ul class="actions">
-	<li><%= link_to "Add Event", new_event_path, class: "new" %></li>
+	<% if user_signed_in? %>
+		<li><%= link_to "Add Event", new_event_path, class: "new" %></li>
+	<% end %>
 </ul>
 </header>
 
@@ -30,7 +32,7 @@
             <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
           </p>
           <p class="lead-time">
-            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right">Organized by: </span>
+            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right">Organized by: <%= event.organizer.email %></span>
           </p>
           <p class="index-icons">
             
