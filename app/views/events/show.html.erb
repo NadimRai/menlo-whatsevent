@@ -5,10 +5,10 @@
 	<%= @event.description %>
 </p>
 <p>
-	<%= @event.start_date %>
+	<%= time_format(@event.start_date) %>
 </p>
 <p>
-	<%= @event.end_date %>
+	<%= time_format(@event.end_date)  %>
 </p>
 <p>
 	<%= @event.venue %>
