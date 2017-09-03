@@ -2,7 +2,7 @@
 
 <h2><%= @event.title %></h2>
 <p>
-	<%= @event.description %>
+	<%= @event.description %><%= icon('flag')%>
 </p>
 <p>
 	<%= time_format(@event.start_date) %>

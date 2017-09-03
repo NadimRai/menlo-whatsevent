@@ -1,6 +1,43 @@
+<header>
 <h3>All Events</h3>
-<%= link_to "Add Event", new_event_path %><br>
+<ul class="actions">
+	<li><%= link_to "Add Event", new_event_path, class: "new" %></li>
+</ul>
+</header>
+
+<div class="row">
+  <div class="col-sm-3 pull-right">
+    <div class="sidebar">
+      <h3 class="discover">Discover</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="<%= "active" if current_page?("/events")%>"><%= link_to "ALL EVENTS", events_path %></li>
+          
+        
+      </ul>
+    </div>
+  </div>
 <% @events.each do |event| %>
-	<%= link_to event.title, event_path(event) %>
-	<p><%= event.description %></p>
+ <div class="col-sm-9 pull-left">
+   <%= link_to event_path(event) do %>
+    <div class="events">
+      <div class="row">
+        <div class="col-sm-3">
+          <%= image_tag "http://via.placeholder.com/200x100" %>
+        </div>
+        <div class="col-sm-9">
+          <h3 class="event-title"><%= event.title %></h3>
+          <p>
+            <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
+          </p>
+          <p class="lead-time">
+            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right">Organized by: </span>
+          </p>
+          <p class="index-icons">
+            
+          </p>
+        </div>
+      </div>
+    </div>
+   <% end %>
+ </div>
 <% end %>
