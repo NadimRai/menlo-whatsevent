@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+	def index
+		@events = Event.all.order("created_at ASC")
+	end
+
 	def new
 		@event = Event.new
 	end
@@ -12,7 +16,7 @@ class EventsController < ApplicationController
 			redirect_to @event 
 		else
 			flash.now[:alert] = "Please check error"
-			render 'new'
+			render 'form'
 		end
 	end
 
@@ -23,6 +27,13 @@ class EventsController < ApplicationController
 	end
 
 	def update
+		if @event.update(event_params)
+			flash[:success] = "Event update"
+			redirect_to @event 
+		else
+			flash.now[:alert] = "Cannot update"
+			render 'edit'
+		end
 	end
 
 	def destroy
