@@ -20,7 +20,7 @@
 			    <div class="events">
 			      <div class="row">
 			        <div class="col-sm-3">
-			          <%= image_tag "http://via.placeholder.com/200x100" %>
+			          <%= image_tag event.image.url(:thumb) %>
 			        </div>
 			        <div class="col-sm-9">
 			          <h3 class="event-title"><%= link_to event.title, event_path(event) %></h3>
@@ -37,9 +37,11 @@
 
 			          <div class="lead-time">
 			          	<ul class="actions">
-					  	<% if @user == current_user || current_user.admin? %>
-						    <li><%= link_to "Edit Event", edit_event_path(event)  %></li>
-						    <li><%= link_to "Delete Event", event_path(event), method: :delete, data: {confirm: "Are you sure?"} %></li>
+			          	<% if user_signed_in? %>
+						  	<% if @user == current_user || current_user.admin? %>
+							    <li><%= link_to "Edit Event", edit_event_path(event)  %></li>
+							    <li><%= link_to "Delete Event", event_path(event), method: :delete, data: {confirm: "Are you sure?"} %></li>
+							<% end %>
 						<% end %>
 					  </ul>
 			          </div>
