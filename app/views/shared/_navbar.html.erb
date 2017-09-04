@@ -29,6 +29,9 @@
             <li><%#= link_to "Dashboard", dashboard_path %></li>
               <li><%= link_to "List Your Event", new_event_path %></li>
               <li role="separator" class="divider"></li>
+              <% admins_only do %>
+                <li><%= link_to "Admin", admin_root_path %></li>
+              <% end %>
               <li><%= link_to "My Events", user_path(current_user) %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
