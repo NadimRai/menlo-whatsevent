@@ -22,6 +22,21 @@
 
 @import "events";
 
+.main-page{
+ height: 100vh;
+ 
+}
+.image-container{
+  background-image: url('event.jpg');
+  background-size: cover;
+    
+}
+
+.form-page{
+  border: 1px solid #eee;
+  margin-top: 80px;
+
+}
 
 body {
   font-size: 14px;
@@ -29,11 +44,13 @@ body {
   background-color: #F8F8F8;
   font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   padding-top: 70px;
+
 }
 
 // NAVBARS
 .navbar-default {
   background-color: #FFFFFF;
+
 }
 
 .navbar-default .navbar-brand {

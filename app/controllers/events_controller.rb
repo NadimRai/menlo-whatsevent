@@ -3,6 +3,16 @@ class EventsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	before_action :owned_post, only: [:edit, :update, :destroy]
 
+	def search
+		@events = Event.all
+		@categories = Category.all
+  		if params[:search]
+    		@events = Event.search(params[:search]).order("created_at DESC")
+  		else
+    		@events = Event.all.order("created_at DESC")
+  		end
+	end
+
 	def index
 		@events = Event.all.order("created_at DESC")
 		@categories = Category.order(:name)
