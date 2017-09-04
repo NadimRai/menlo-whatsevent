@@ -4,7 +4,7 @@
   <h2 id="show-title"><%= @event.title %></h2>
 
   <ul class="actions">
-  	<% if @event.organizer == current_user %>
+  	<% if @event.organizer == current_user || current_user.admin? %>
 	    <li><%= link_to "Edit Event", edit_event_path(@event), class: "edit"  %></li>
 	    <li><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"  %></li>
 	<% end %>

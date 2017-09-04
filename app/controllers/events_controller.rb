@@ -60,7 +60,7 @@ class EventsController < ApplicationController
 	end
 
 	def owned_post
-	  unless current_user == @event.organizer
+	  unless @event.organizer == current_user || current_user.admin?
 	    flash[:alert] = "That Event doesn't belong to you!"
 	    redirect_to root_path
 	  end
