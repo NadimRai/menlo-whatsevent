@@ -1,6 +1,8 @@
 class Admin::ApplicationController < ApplicationController
   before_action :authorize_admin!
   def index
+  	@events = Event.all
+  	@users = User.all
   end
 
   private

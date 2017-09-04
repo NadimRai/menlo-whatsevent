@@ -1,0 +1,27 @@
+<h2>Organizers</h2><%= link_to "Back To Dashboard", admin_root_path %>
+<br>
+	<div class="table-responsive">
+		<table class="table table-striped">
+	    	<thead>
+		        <tr>
+		          <th>Organization</th>
+		          <th>Name</th>
+		          <th>Email</th>
+		          <th>Events</th>  
+		          <th>Joined</th>
+	        	</tr>
+	      	</thead>
+	      	<tbody>
+	      		<% @users.each do |user| %>
+			        <tr>
+			          <td><%= user.organization_name %></td>
+			          <td><%= user.full_name %></td>
+			          <td><%= user.email %></td>
+			          <td><%= user.organized_events.count  %></td>
+			          <td><%= time_format(user.created_at) %></td>
+			          <td>sit</td>
+			        </tr>      
+	        	<% end %> 
+	      	</tbody>  
+	    </table>	
+  </div>
