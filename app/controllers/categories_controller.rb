@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   	
   def show
     @categories = Category.order(:name)
+    @category_events = @category.events
     
   end
 

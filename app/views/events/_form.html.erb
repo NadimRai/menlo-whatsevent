@@ -37,6 +37,10 @@
 			</div>
 
 			<div>
+				<%= select_tag(:category_id, options_for_select(@category_array), prompt: "Select Category") %>
+			</div>
+
+			<div>
 				<%= f.file_field :image %>
 			</div>
 			<%= f.submit %>

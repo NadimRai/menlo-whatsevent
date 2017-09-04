@@ -1,4 +1,5 @@
-<div class="row">
+<div class="container">
+	<div class="row">
 	<div class="col-md-3">
 		
 		<div class="panel panel-default">
@@ -7,6 +8,7 @@
 	        <ul class="sidebar-list">
 	          <li><strong>Username:</strong> &nbsp;<%= @user.username %></li>
 	          <li><strong>Organization:</strong> &nbsp;<%= @user.organization_name %></li>
+	          <li><strong>Events:</strong> &nbsp; <%= @user.organized_events.count %></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -26,6 +28,9 @@
 			          <h3 class="event-title"><%= link_to event.title, event_path(event) %></h3>
 			          <p>
 			            <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
+			          </p>
+			          <p>
+			          	<span class="event-venue"><%= event.category.name %></span>
 			          </p>
 			          <p class="lead-time">
 			            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right"><%= time_format(event.end_date) %></span>
@@ -60,4 +65,5 @@
 	</div>
 </div>
 
+</div>
 

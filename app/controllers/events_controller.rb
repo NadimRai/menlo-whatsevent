@@ -16,14 +16,18 @@ class EventsController < ApplicationController
 	def index
 		@events = Event.all.order("created_at DESC")
 		@categories = Category.order(:name)
+
 	end
 
 	def new
 		@event = Event.new
+		@category_array = Category.all.map {|c| [c.name,c.id]}
 	end
 
 	def create
 		@event = current_user.organized_events.build(event_params)
+		@event.category_id = params[:category_id]
+
 		if @event.save
 			flash[:success] = "Your event is created"
 			redirect_to @event 
@@ -38,10 +42,14 @@ class EventsController < ApplicationController
 	end
 
 	def edit
+		@category_array = Category.all.map {|c| [c.name,c.id]}
 	end
 
 	def update
+		@event.category_id = params[:category_id]
 		if @event.update(event_params)
+			
+
 			flash[:success] = "Event update"
 			redirect_to @event 
 		else
@@ -59,7 +67,7 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit(:title, :description, :start_date, :end_date, :venue, :location, :image)
+		params.require(:event).permit(:title, :description, :start_date, :end_date, :venue, :location, :image, :category_id)
 	end
 
 	def set_event
