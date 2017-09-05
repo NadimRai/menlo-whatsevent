@@ -33,12 +33,20 @@
 			          	<span class="event-venue"><%= event.category.name %></span>
 			          </p>
 			          <p class="lead-time">
+			          	<span class="event-start">Capacity: <%= event.seats %></span>
+			          </p>
+			          <p class="lead-time">
+			          	<span class="event-start">Attendees: <%= event.attendees.count %></span>
+			          </p>
+			          <p class="lead-time">
 			            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right"><%= time_format(event.end_date) %></span>
 			          </p>
 
 			          <div class="lead-time">
 			          	<span class="event-start"><%= event_status(event) %></span>
 			          </div>
+
+			          
 
 			          <div class="lead-time">
 			          	<ul class="actions">

@@ -65,7 +65,7 @@
 		      		<span class="pull-right">
 		      			<%= @event.attendees.count %>
 		      		</span></h4>
-	      			<span class="label label-default pull-right">
+	      			<span class="label label-default pull-right <%= 'hidden' if @event.seats_left? %>">
 	      				<%= pluralize(@event.seats_left, "Seats") %> &nbsp;Available
 	      			</span>
 	    	</div>
@@ -76,7 +76,12 @@
 			</div>
 
 			<div class="sidebar">
-				<%= link_to "Register", event_attendances_path(@event), method: :post, class: 'new' %>
+				<% if @event.seats_left? %>
+					<div class="label label-danger text-uppercase">No Seats Available</div>
+				<% else %>
+					<%= link_to "Register", event_attendances_path(@event), method: :post, 
+						class: 'new' %>
+				<% end %>
 			</div>
 		</div>
 	</div>
