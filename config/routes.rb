@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :events
   get 'search', to: 'events#search'
 
+  resources :comments
+
   root "events#index"
 end
