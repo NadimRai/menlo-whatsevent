@@ -32,8 +32,13 @@
     	</header>
 
 	    <div id="comments">
-	      
+	      <% if @event.comments.any? %>
+	      	<%= render @event.comments %>
+	      <% else %>
+	      	<p>There are no comments for this event</p>
+	      <% end %>
 	    </div>
+	    <%= render "comments/form", event: @event, comment: @comment %>
 		 
 	</div>
 

@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show]
   resources :categories, only: [:show]
-  resources :events
+  resources :events do 
+    resources :comments
+  end
   get 'search', to: 'events#search'
 
-  resources :comments
+  
 
   root "events#index"
 end

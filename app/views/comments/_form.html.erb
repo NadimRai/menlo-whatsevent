@@ -1,0 +1,10 @@
+<header>
+  <h3>Add Comment</h3>
+</header>
+
+<%= form_for([event, comment]) do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, autofocus: true %>
+  
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
