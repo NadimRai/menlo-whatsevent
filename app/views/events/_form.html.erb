@@ -39,7 +39,11 @@
 			<div>
 				<%= select_tag(:category_id, options_for_select(@category_array), prompt: "Select Category") %>
 			</div>
-
+			
+			<div>
+				<%= f.label :capacity %>
+				<%= f.number_field :seats, placeholder: "The number of attendees to the event" %>
+			</div>
 			<div>
 				<%= f.file_field :image %>
 			</div>

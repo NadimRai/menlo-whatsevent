@@ -1,4 +1,59 @@
-<h3>Edit Event </h3>
+<h3>Edit @event </h3>
 
-<%= render 'form', event: @event %>
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<% if @event.errors.any? %>
+			<div id="error_explanation">
+				<h3><%= pluralize(@event.errors.count, "error") %></h3>
+			</div>
+			<ul>
+				<% @event.errors.full_messages.each do |error| %>
+					<li><%= error %></li>
+				<% end %>
+			</ul>
+		<% end %>
+		<%= form_for @event do |f| %>
+			<div>
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+			</div>
+			<div>
+				<%= f.label :description %>
+				<%= f.text_area :description %>
+			</div>
+			<div>
+				<%= f.label :start_date %>
+				<%= f.datetime_select(:start_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true) %>
+			</div>
+			<div>
+				<%= f.label :end_date %>
+				<%= f.datetime_select(:end_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true) %>
+			</div>
+			<div>
+				<%= f.label :venue %>
+				<%= f.text_field :venue %>
+			</div>
+			<div>
+				<%= f.label :location %>
+				<%= f.text_field :location %>
+			</div>
+
+			<div>
+				<%= f.select(:category_id, @category_array, prompt: "Select Category") %>
+			</div>
+			
+			<div>
+				<%= f.label :capacity %>
+				<%= f.number_field :seats, placeholder: "The number of attendees to the @event" %>
+			</div>
+			<div>
+				<%= f.file_field :image %>
+			</div>
+			<%= f.submit %>
+		<% end %>
+
+	
+	</div>
+</div>
+
 <%= link_to "Cancel", event_path(@event) %>
