@@ -1,4 +1,6 @@
 <%= comment.body %>
+
 <footer>
+	By <cite><%= comment.user.full_name %></cite>
 	<%= time_ago_in_words(comment.created_at) %>
 </footer>

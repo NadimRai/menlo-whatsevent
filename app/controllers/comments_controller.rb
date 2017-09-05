@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = @event.comments.build(comment_params)
+		@comment.user_id = current_user
+
 		if @comment.save
 			flash[:notice] = "Comment added to the event"
 			redirect_to event_path(@comment.event)

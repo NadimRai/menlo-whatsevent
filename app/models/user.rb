@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :organized_events, class_name: "Event", dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def full_name
   		"#{first_name} #{last_name}"
