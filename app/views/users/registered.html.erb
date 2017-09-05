@@ -1,0 +1,37 @@
+<div class="container">
+  <header>
+    <h1><%= @user1.first_name %>'s Registered Events </h1>
+  </header>
+
+  <% if @user1.attended_events.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Event Status</th>
+          <th>Seats Left</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user1.attended_events.reverse.each do |event| %>
+          <tr>
+            <td><%= link_to event.title, event_path(event) %></td>
+            <td><%= time_format(event.start_date) %></td>
+            <td><%= time_format(event.end_date) %></td>
+            
+            <td>
+              <%= link_to "Edit", edit_event_path(event), class: "edit" %>
+              <%= link_to "Delete", event_path(event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"  %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= @user1.organization_name %> has no events yet</p>
+  <% end %>
+</div>

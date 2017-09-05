@@ -33,6 +33,7 @@
                 <li><%= link_to "Admin", admin_root_path %></li>
               <% end %>
               <li><%= link_to "My Events", user_path(current_user) %></li>
+              <li><%= link_to "Registered Event", user_registered_path(current_user) %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
