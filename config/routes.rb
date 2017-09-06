@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     root "application#index"
     resources :users, only: [:index, :show]
     resources :categories
+    resources :comments, only: [:index]
+    resources :attendances, only: [:index]
   end
 
   devise_for :users
