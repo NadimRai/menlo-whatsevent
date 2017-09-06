@@ -22,14 +22,15 @@
 
 @import "events";
 
-.main-page{
- height: 100vh;
- 
-}
-.image-container{
+.jumbotron{
   background-image: url('event.jpg');
   background-size: cover;
+   height: 100vh;
     
+}
+
+.jumbotron h1, h4, h2{
+  color: #fff;
 }
 
 .form-page{
@@ -50,6 +51,7 @@ body {
 // NAVBARS
 .navbar-default {
   background-color: #FFFFFF;
+ 
 
 }
 
