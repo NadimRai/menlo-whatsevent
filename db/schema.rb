@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170905163207) do
-=======
-ActiveRecord::Schema.define(version: 20170905180022) do
->>>>>>> capacity
+ActiveRecord::Schema.define(version: 20170906084912) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "event_id"
@@ -60,6 +56,16 @@ ActiveRecord::Schema.define(version: 20170905180022) do
     t.integer "seats", default: 0
     t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.string "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_likes_on_event_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

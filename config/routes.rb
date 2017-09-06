@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :events do 
+    resources :likes, only: [:create]
     resources :comments
     resources :attendances, only: [:create]
   end
