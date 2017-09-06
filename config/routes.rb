@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show]
+  resources :tags, only: [:show]
+
   resources :events do 
     resources :likes, only: [:create]
     resources :comments, only: [:create]

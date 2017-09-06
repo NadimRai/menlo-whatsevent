@@ -56,8 +56,10 @@
 				</p>
 			</div>
 			<div class="sidebar">
-				<h4 class="tags"><i class="fa fa-tag" aria-hidden="true"></i>Tags</h4>
-				Tag
+				<h4 class="tags"><i class="fa fa-hashtag" aria-hidden="true"></i>Tags</h4>
+				<% if @event.tags.any? %>
+					<%= render @event.tags %>
+				<% end %>
 			</div>
 			<hr>
 			<div class="sidebar">

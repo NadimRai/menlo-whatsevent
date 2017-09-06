@@ -47,6 +47,11 @@
 			<div>
 				<%= f.file_field :image %>
 			</div>
+
+			<div class="field">
+			    <%= f.label :tags %>
+			    <%= f.text_field :tag_list, placeholder: "Please enter comma separated words" %>
+  			</div>
 			<%= f.submit %>
 		<% end %>
 
