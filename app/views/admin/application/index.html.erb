@@ -30,10 +30,10 @@
       </li>
 
       <li>
-        <%= link_to "#" do %>
+        <%= link_to admin_attendances_path do %>
           <i class="fa fa-user" aria-hidden="true"></i>
           <span>Attendees</span>
-          <span class="label label-danger pull-right"> attendances</span>
+          <span class="label label-danger pull-right"><%= @attendances.count %></span>
         <% end %>
       </li>
 
@@ -55,10 +55,10 @@
       </li>
 
       <li>
-        <%= link_to "#" do %>
+        <%= link_to admin_comments_path do %>
           <i class="fa fa-comment-o" aria-hidden="true"></i>
           <span>Comments</span>
-          <span class="label label-primary pull-right"><%#= @comments.count %></span>
+          <span class="label label-primary pull-right"><%= @comments.count %></span>
         <% end %>
       </li>
 
