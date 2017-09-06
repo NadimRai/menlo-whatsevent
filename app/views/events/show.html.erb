@@ -72,9 +72,19 @@
 			<hr>
 			<div class="sidebar">
 				<h4 class="likes"><i class="fa fa-heart" aria-hidden="true"></i> Likes</h4>
-				Like
+				<%= link_to event_likes_path(@event, like: "like"), method: :post do %>
+					<span id="like"><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+						<%= @event.likes_total %>
+					</span>
+					
+				<% end %> &nbsp; &nbsp;
+				<%= link_to event_likes_path(@event, like: "dislike"), method: :post do %>
+					<span id="dislike"><i class="fa fa-thumbs-down" aria-hidden="true"></i>
+						<%= @event.dislikes_total %>
+					</span>
+				<% end %>
 			</div>
-
+			<p></p>
 			<div class="sidebar">
 				<% if @event.seats_left? %>
 					<div class="label label-danger text-uppercase">No Seats Available</div>

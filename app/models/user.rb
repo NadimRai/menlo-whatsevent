@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :attendances
   has_many :attended_events, through: :attendances
+  has_many :likes, dependent: :destroy
 
   def full_name
   		"#{first_name} #{last_name}"

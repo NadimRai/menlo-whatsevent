@@ -51,7 +51,9 @@
               <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right">Organized by: <%= event.organizer.organization_name %></span>
             </p>
             <p class="index-icons">
-              
+              <span><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= event.comments.count %></span>
+              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= event.likes_total %></span>
+              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i> <%= event.dislikes_total %></span>
             </p>
           </div>
         </div>
