@@ -1,5 +1,7 @@
+<div class="page-margin"></div>
+
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-2">
+	<div class="col-sm-6 col-sm-offset-3">
 		<% if event.errors.any? %>
 			<div id="error_explanation">
 				<h3><%= pluralize(event.errors.count, "error") %></h3>
@@ -11,48 +13,48 @@
 			</ul>
 		<% end %>
 		<%= form_for event do |f| %>
-			<div>
+			<div class="form-group">
 				<%= f.label :title %>
-				<%= f.text_field :title %>
+				<%= f.text_field :title, class: "form-control" %>
 			</div>
-			<div>
+			<div class="form-group">
 				<%= f.label :description %>
-				<%= f.text_area :description %>
+				<%= f.text_area :description, class: "form-control" %>
 			</div>
-			<div>
+			<div class="form-group">
 				<%= f.label :start_date %>
 				<%= f.datetime_select(:start_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true) %>
 			</div>
-			<div>
+			<div class="form-group">
 				<%= f.label :end_date %>
 				<%= f.datetime_select(:end_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true) %>
 			</div>
-			<div>
+			<div class="form-group">
 				<%= f.label :venue %>
-				<%= f.text_field :venue %>
+				<%= f.text_field :venue, class: "form-control" %>
 			</div>
-			<div>
+			<div class="form-group">
 				<%= f.label :location %>
-				<%= f.text_field :location %>
+				<%= f.text_field :location, class: "form-control" %>
 			</div>
 
 			<div>
 				<%= select_tag(:category_id, options_for_select(@category_array), prompt: "Select Category") %>
 			</div>
 			
-			<div>
+			<div class="form-group">
 				<%= f.label :capacity %>
-				<%= f.number_field :seats, placeholder: "The number of attendees to the event" %>
+				<%= f.number_field :seats, placeholder: "The number of attendees to the event", class: "form-control" %>
 			</div>
 			<div>
-				<%= f.file_field :image %>
+				<%= f.file_field :image, class: "button-photo" %>
 			</div>
 
-			<div class="field">
+			<div class="form-group">
 			    <%= f.label :tags %>
-			    <%= f.text_field :tag_list, placeholder: "Please enter comma separated words" %>
+			    <%= f.text_field :tag_list, placeholder: "Please enter comma separated words", class: "form-control" %>
   			</div>
-			<%= f.submit %>
+			<%= f.submit class: "button-submit" %>
 		<% end %>
 
 	

@@ -1,0 +1,53 @@
+
+
+.main-page {
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(event.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(event.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    z-index: -1;
+    
+}
+
+.main-title{
+	color: #fff;
+	font-weight: 300;
+}
+
+.hero-brand {
+  margin-bottom: 75px;
+  display: inline-block;
+  color: #fff;
+}
+
+.hero-brand:hover {
+  opacity: .75;
+}
+
+.tagline {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  margin: 45px 0 75px 0;
+  color: #e3e3e4;
+  font-weight: 300;
+}
+
+.button{
+	padding: 10px 30px;
+	font-weight: 200;
+	border-radius: 200px;
+	text-decoration: none;
+	background-color: #ff5a5f;
+	font-size: 30px;
+	color: #fff;
+}
+
+.button-search{
+	padding: 2px 30px;
+	border-radius: 80px;
+	margin-top: 10px;
+	background-color: #ff5a5f;
+	color: #fff;
+ }

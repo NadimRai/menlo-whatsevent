@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= form_tag(search_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
-          <%= submit_tag "Search", :name => nil, class: "btn btn-info" %>     
+          <%= submit_tag "Search", :name => nil, class: "button-search" %>     
         <% end %></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">

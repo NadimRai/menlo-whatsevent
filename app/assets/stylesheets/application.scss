@@ -22,16 +22,7 @@
 
 @import "events";
 
-.jumbotron{
-  background-image: url('event.jpg');
-  background-size: cover;
-   height: 100vh;
-    
-}
 
-.jumbotron h1, h4, h2{
-  color: #fff;
-}
 
 .form-page{
   border: 1px solid #eee;
@@ -231,4 +222,13 @@ span.past {
 .sidebar-list {
   padding-left: 0;
   list-style: none;
+}
+
+.page-margin{
+  margin-bottom: 90px;
+}
+
+.button-submit{
+  background-color: #ff5a5f;
+  color: #fff;
 }
